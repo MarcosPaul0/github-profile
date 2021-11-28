@@ -11,11 +11,9 @@ import logoImg from '../assets/logo.svg';
 export default function Home() {
   return (
     <>
-      <div>
-        <Head>
-          <title>Github Profile | Login</title>
-        </Head>
-      </div>
+      <Head>
+        <title>Github Profile | Login</title>
+      </Head>
 
       <main className={styles.container}>
         <form className={styles.form}>
