@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  .label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+
+  .input {
+    padding: 0.8rem 0.5rem;
+    background: var(--gray-light);
+    border-radius: 10px;
+    border: 1px solid var(--gray);
+    font-size: 1rem;
+  }
+}

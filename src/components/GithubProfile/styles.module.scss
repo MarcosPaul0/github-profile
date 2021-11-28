@@ -1,0 +1,44 @@
+.container {
+  background: var(--white);
+  display: flex;
+  gap: 1rem;
+  max-width: 634px;
+  border: 1px solid var(--gray);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px var(--gray);
+  text-align: justify;
+  margin-top: 3rem;
+
+  @media(max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageContainer {
+    background: linear-gradient(to right, var(--gray), var(--blue));
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 10rem;
+
+    .image {
+      border-radius: 100%;
+      height: 10rem;
+      padding: 3px;
+    }
+  }
+
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.2rem;
+
+    .headerContainer {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

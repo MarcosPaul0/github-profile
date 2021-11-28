@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+
+  .searchContainer {
+    display: flex;
+    max-width: 634px;
+    width: 100%;
+    
+    input {
+      width: 100%;
+      padding: 0.8rem 0.5rem;
+      background: var(--white);
+      border: 1px solid var(--gray);
+      border-right: none;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      font-size: 1rem;
+    }
+  
+    button {
+      background: var(--blue);
+      border: 1px solid var(--gray);
+      border-radius: none;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      padding: 0 0.7rem;
+    }
+  }
+}

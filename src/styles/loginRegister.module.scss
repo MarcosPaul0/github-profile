@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  background: url('../assets/background.png') no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  .form {
+    width: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2.5rem;
+    gap: 1rem;
+
+    border-radius: 10px;
+    background: var(--background);
+    transition: filter 0.2s;
+
+    a {
+      color: var(--blue);
+      filter: brightness(0.8);
+    }
+  }
+}
