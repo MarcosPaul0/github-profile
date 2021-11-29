@@ -1,5 +1,7 @@
-import { useContext, useState, FormEvent } from 'react';
+import api from '../api';
 import { AuthContext } from '../contexts/authContext';
+import { useContext, useState, FormEvent } from 'react';
+import { useNotify } from '../hooks/useNotify';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -9,8 +11,6 @@ import { ToastContainer } from 'react-toastify';
 
 import { Header } from '../components/Header';
 import { GithubProfile } from '../components/GithubProfile';
-import api from '../api';
-import { useNotify } from '../hooks/useNotify';
 
 interface IGithubProfile {
   login: string
@@ -56,7 +56,7 @@ export default function SearchProfile() {
           <form className={styles.searchContainer}>
             <input 
               type="text"
-              placeholder="Digite o nome ou email de usuário do Github"
+              placeholder="Nome ou email do Github"
               value={profile}
               onChange={e => setProfile(e.target.value)}
             /> 

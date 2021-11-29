@@ -1,16 +1,17 @@
+import api from '../api';
+import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { useNotify } from '../hooks/useNotify';
 import Head from 'next/head'
 import Image from  'next/image';
-import { useNotify } from '../hooks/useNotify';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import api from '../api';
+
 import styles from '../styles/loginRegister.module.scss'
+import logoImg from '../assets/logo.svg';
 import { ToastContainer } from 'react-toastify';
 
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 
-import logoImg from '../assets/logo.svg';
 
 export default function Register() {
   const { errorNotify, successNotify } = useNotify();
@@ -40,8 +41,6 @@ export default function Register() {
       }
     }
   });
-
-  
 
   return (
     <>
