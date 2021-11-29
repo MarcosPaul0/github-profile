@@ -1,13 +1,24 @@
+import { useRouter } from 'next/router';
+import { useContext } from 'react';
+import { AuthContext } from '../contexts/authContext';
 import Head from 'next/head';
 import Image from 'next/image';
-import styles from '../styles/searchProfile.module.scss';
 
+import styles from '../styles/searchProfile.module.scss';
 import searchImg from '../assets/search.svg';
 
 import { Header } from '../components/Header';
 import { GithubProfile } from '../components/GithubProfile';
 
 export default function SearchProfile() {
+  const { user } = useContext(AuthContext);
+
+  const router  = useRouter();
+
+  if(!user) {
+    router.push('/');
+  }
+
   return (
     <>
       <Head>
@@ -15,7 +26,7 @@ export default function SearchProfile() {
       </Head>
 
       <main>
-        <Header user="Marcos Paulo" />
+        <Header user={user?.name} />
         <div className={styles.container}>
         <form className={styles.searchContainer}>
           <input 

@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import Image from  'next/image';
+import { useNotify } from '../hooks/useNotify';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import api from '../api';
 import styles from '../styles/loginRegister.module.scss'
+import { ToastContainer } from 'react-toastify';
 
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
@@ -11,8 +13,10 @@ import { Button } from '../components/Button';
 import logoImg from '../assets/logo.svg';
 
 export default function Register() {
+  const { errorNotify, successNotify } = useNotify();
+
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required(),
+    name: Yup.string().required('Campo obrigatório'),
     email: Yup.string().email('Email inválido').required('Campo obrigatório'),
     password: Yup.string().required('Campo obrigatório').min(8, 'Requer no mínimo 8 caractéres'),
     confirmPassword: Yup.string().required('Campo obrigatório').equals([Yup.ref('password'), null], 'As senhas diferem')
@@ -29,12 +33,15 @@ export default function Register() {
     onSubmit: async data => {
       try {
         const result = await api.post('/register', data);
-        console.log(result.data);
-      } catch(err) {
-        console.log(err);
+
+        successNotify('Usuário registreado com sucesso', '/login')
+      } catch(err: any) {
+        errorNotify(err.response.data.message);
       }
     }
   });
+
+  
 
   return (
     <>
@@ -94,6 +101,7 @@ export default function Register() {
               await formik.submitForm()
             }}
           />
+          <ToastContainer />
         </form>
       </main>
     </>
