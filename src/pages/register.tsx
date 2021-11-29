@@ -34,7 +34,7 @@ export default function Register() {
       try {
         const result = await api.post('/register', data);
 
-        successNotify('Usuário registreado com sucesso', '/login')
+        successNotify('Usuário registreado com sucesso', '/');
       } catch(err: any) {
         errorNotify(err.response.data.message);
       }
@@ -66,7 +66,7 @@ export default function Register() {
           <Input 
             label="E-mail" 
             name="email" 
-            type="email" 
+            type="text" 
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
