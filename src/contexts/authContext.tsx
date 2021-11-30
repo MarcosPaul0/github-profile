@@ -64,7 +64,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
       api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
       api.get('/profile')
         .then(resp => setUser(resp.data))
-        .then(() => router.push('/search-profile'));
+        .then(() => router.push('/search-profile'))
+        .catch(err => null);
     } else {
       router.push('/');
     }
